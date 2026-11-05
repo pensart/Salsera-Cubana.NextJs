@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@theme {
+    --color-foreground: theme('colors.neutral.300');
+    --color-background: theme('colors.neutral.900');
+    --color-primary: theme('colors.amber.700');
+    --font-title: var(--font-bebas-neue), sans-serif;
+    --font-sans: var(--font-montserrat), sans-serif;
+    --aspect-3x4: 3/4;
+
+    /* Animations */
+    --animate-full-tl: full-tl 25s linear infinite;
+    --animate-full-tr: full-tr 25s linear infinite;
+    --animate-spin-slower: spin 6s linear infinite;
+
+    @keyframes scroll-down {
+        0% {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+        }
+        90% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(0);
+            opacity: 0;
+        }
+    }
+}
+
+.animate-scroll-down {
+    animation: scroll-down 1s ease-in-out infinite;
+}
+
+.px-page {
+    @apply px-5 md:px-10;
+}
+
+.gap-grid {
+    @apply gap-5 md:gap-10;
+}
+
+.my-section {
+    @apply my-10 md:my-20;
+}
+
+.my-section--small {
+    @apply my-7 md:my-14    ;
+}
+
+.py-section {
+    @apply py-10 md:py-20;
+}
+
+.pb-section {
+    @apply pb-10 md:pb-20;
+}
+
+.py-section--small {
+    @apply py-7 md:py-14    ;
+}
+
+.swiper-thumbs .swiper-slide:hover img,
+.swiper-slide-thumb-active img {
+    border-color: white;
+    opacity: 1;
+}
+
+/*Navigation*/
+.nav-link {
+    @apply text-white hover:text-primary transition-colors font-medium uppercase text-sm tracking-wide;
+}
+
+.mobile-nav-link {
+    @apply block py-3 text-white hover:text-primary transition-colors font-medium uppercase text-sm tracking-wide border-b border-neutral-800 last:border-b-0;
+}
+
+.hamburger-line {
+    @apply block w-6 h-0.5 bg-white transition-all duration-300 ease-in-out;
+}
+
+#hamburger.active .hamburger-line:nth-child(1) {
+    @apply rotate-45 translate-y-2 bg-primary;
+}
+
+#hamburger.active .hamburger-line:nth-child(2) {
+    @apply opacity-0;
+}
+
+#hamburger.active .hamburger-line:nth-child(3) {
+    @apply -rotate-45 -translate-y-2 bg-primary;
+}
+
+/*Rich text*/
+.rte {
+    h2 {
+        @apply text-xl font-bold text-white leading-tight mb-1 last:mb-0;
+    }
+    h3 {
+        @apply text-lg font-bold text-white/80 leading-tight mb-1 last:mb-0;
+    }
+    p {
+        @apply text-white/80 leading-relaxed mb-4 last:mb-0;
+    }
+    ul {
+        @apply flex flex-wrap gap-x-3 mb-4 last:mb-0;
+    }
+}
